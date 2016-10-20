@@ -15,7 +15,7 @@
 
             recognition.onstart = function() { console.log("onstart"); }
 
-            var final_transcript = null;
+            var final_transcript = "";
 
             recognition.onresult = function(event) {
                 for (var i = event.resultIndex; i < event.results.length; ++i) {
