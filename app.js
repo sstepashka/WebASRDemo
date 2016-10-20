@@ -8,8 +8,8 @@
     var recognition = null;
 
     function start() {
-        if (recognition == null) {}
-            var recognition = new SpeechRecognition();
+        if (recognition == null) {
+            recognition = new SpeechRecognition();
             recognition.continuous = false;
             recognition.interimResults = true;
 
