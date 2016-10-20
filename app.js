@@ -30,6 +30,6 @@
     }
 
     window.check_asr_availability = check_asr_availability;
-    window.recognize = start;
-    window.recognize = stop;
+    window.start = start;
+    window.stop = stop;
 })();
