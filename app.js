@@ -7,7 +7,7 @@
 
     function recognize() {
         var recognition = new SpeechRecognition();
-        recognition.continuous = true;
+        recognition.continuous = false;
         recognition.interimResults = true;
 
         recognition.onstart = function() { console.log("onstart"); }
