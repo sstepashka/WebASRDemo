@@ -1,15 +1,20 @@
 (function() {
-    var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition || null;
+    var GSpeechRecognition = null;
+    if ('SpeechRecognition' in window) {
+        GSpeechRecognition = SpeechRecognition;
+    } else if ('webkitSpeechRecognition' in window) {
+        GSpeechRecognition = webkitSpeechRecognition;
+    }
 
     function check_asr_availability() {
-        alert(SpeechRecognition);
+        alert(GSpeechRecognition);
     }
 
     var recognition = null;
 
     function start() {
         if (recognition == null) {
-            recognition = new SpeechRecognition();
+            recognition = new GSpeechRecognition();
             recognition.continuous = false;
             recognition.interimResults = true;
 
