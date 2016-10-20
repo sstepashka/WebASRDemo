@@ -14,9 +14,18 @@
             recognition.interimResults = true;
 
             recognition.onstart = function() { console.log("onstart"); }
-            recognition.onresult = function(event) { console.log("onresult"); }
+
+            var final_transcript = null;
+
+            recognition.onresult = function(event) {
+                for (var i = event.resultIndex; i < event.results.length; ++i) {
+                    if (event.results[i].isFinal) {
+                        final_transcript += event.results[i][0].transcript;
+                    }
+                }
+            }
             recognition.onerror = function(event) { console.log(event); }
-            recognition.onend = function() { console.log("onend"); }
+            recognition.onend = function() { alert(final_transcript); }
 
             recognition.start();
         }
